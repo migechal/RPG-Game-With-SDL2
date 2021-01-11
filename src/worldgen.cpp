@@ -67,4 +67,9 @@ char* wrgen::World::checkChunk(SDL_Rect playerPosition){
     {
         return (char*)'u';
     }
+    return NULL;
+}
+
+int wrgen::World::load(int startx, int endx, int starty, int endy){
+    
 }
