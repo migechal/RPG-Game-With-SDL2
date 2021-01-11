@@ -47,19 +47,24 @@ int wrgen::createTexture(SDL_Renderer* Renderer, SDL_Texture* texture, char* pat
     }
 }
 
+wrgen::World::World(SDL_Texture* worldTexture, SDL_Rect CenterScreen){
+    WorldText = worldTexture;
+    centerScreen = CenterScreen;
+}
+
 char* wrgen::World::checkChunk(SDL_Rect playerPosition){
-    if(playerPosition.x >= edgex){
+    if(playerPosition.x - centerScreen.x >= edgex){
         return (char*)'r';
     }
-    else if (playerPosition.x <= -edgex)
+    else if (playerPosition.x - centerScreen.x <= -edgex)
     {
         return (char*)'l';
     }
-    if(playerPosition.y >= edgey){
+    else if(playerPosition.y - centerScreen.y >= edgey){
         return (char*)'d';
     }
-    else if (playerPosition.y <= -edgey)
+    else if (playerPosition.y - centerScreen.y <= -edgey)
     {
-        return (char*)'l';
+        return (char*)'u';
     }
 }
