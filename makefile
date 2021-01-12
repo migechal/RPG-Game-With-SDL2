@@ -1,5 +1,5 @@
 CC=g++
-CFLAGS=-lSDL2 -lGL -lGLEW -lm -lSDL2_image -lSDL2_mixer
+CFLAGS=-lSDL2 -lGL -lm -lSDL2_image -lSDL2_mixer
 PFLAGS=-Wall
 
 

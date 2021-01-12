@@ -77,8 +77,10 @@ int wrgen::World::load(int startx, int starty){
     copy.y =        starty;
 
     SDL_RenderCopy(renderer, WorldText, NULL, &copy);
+
+    return 0;
 }
 
 int wrgen::World::savePos(){
-    ;
+    return 0;
 }
