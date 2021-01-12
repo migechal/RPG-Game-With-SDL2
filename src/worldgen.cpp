@@ -5,8 +5,8 @@
 #include "../headers/worldgen.h"
 
 SDL_Texture* wrgen::loadTexture(char* path, SDL_Renderer* Renderer){
-    SDL_Texture* newTexture = NULL;
-    SDL_Surface* loadedSurface = IMG_Load( path );
+    SDL_Texture* newTexture =       NULL;
+    SDL_Surface* loadedSurface =    IMG_Load( path );
     if( loadedSurface == NULL )
     {
         printf( "Unable to load image %s! SDL_image Error: %s\n", path, IMG_GetError() );
@@ -47,9 +47,10 @@ int wrgen::createTexture(SDL_Renderer* Renderer, SDL_Texture* texture, char* pat
     }
 }
 
-wrgen::World::World(SDL_Texture* worldTexture, SDL_Rect CenterScreen){
-    WorldText = worldTexture;
-    centerScreen = CenterScreen;
+wrgen::World::World(SDL_Texture* worldTexture, SDL_Rect& CenterScreen, SDL_Renderer* Renderer){
+    WorldText =         worldTexture;
+    centerScreen =      CenterScreen;
+    renderer =          Renderer;
 }
 
 char* wrgen::World::checkChunk(SDL_Rect playerPosition){
@@ -70,6 +71,14 @@ char* wrgen::World::checkChunk(SDL_Rect playerPosition){
     return NULL;
 }
 
-int wrgen::World::load(int startx, int endx, int starty, int endy){
-    
+int wrgen::World::load(int startx, int starty){
+    SDL_Rect        copy;
+    copy.x =        startx;
+    copy.y =        starty;
+
+    SDL_RenderCopy(renderer, WorldText, NULL, &copy);
+}
+
+int wrgen::World::savePos(){
+    ;
 }

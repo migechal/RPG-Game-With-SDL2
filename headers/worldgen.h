@@ -5,7 +5,8 @@
 #include <vector>
 
 namespace wrgen{
-    SDL_Texture* loadTexture(char* path, SDL_Renderer* Rendere);
+    SDL_Texture* loadTexture(char* path, SDL_Renderer* Renderer);
+    SDL_Renderer* renderer;
     int createRenderer(SDL_Renderer* Renderer, SDL_Window* Window);
     int createTexture(SDL_Renderer* Renderer, SDL_Texture* texture, char* path);
     class World{
@@ -18,8 +19,8 @@ namespace wrgen{
         SDL_Rect centerScreen;
         SDL_Texture* WorldText;
     public:
-        World(SDL_Texture* worldTexture, SDL_Rect CenterScreen);
-        int load(int startx, int endx, int starty, int endy);
+        World(SDL_Texture* worldTexture, SDL_Rect& CenterScreen, SDL_Renderer* Renderer);
+        int load(int startx, int starty);
         char* checkChunk(SDL_Rect playerPosition);
         int savePos();
     };

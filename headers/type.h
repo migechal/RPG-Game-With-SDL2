@@ -24,5 +24,5 @@ public:
     Player();
     int giveObject(Object &object);
     SDL_Rect pos;
-    SDL_Surface* playerSurface;
+    SDL_Texture* playerSurface;
 };
